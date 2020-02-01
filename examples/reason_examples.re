@@ -5,15 +5,15 @@ let _ =
     |> then_(text => print_endline(text) |> resolve)
   );
 
-// let _ =
-//   Js.Promise.(
-//     Fetch.fetchWithInit(
-//       "/api/hello",
-//       Fetch.RequestInit.make(~_method=Post, ()),
-//     )
-//     |> then_(Fetch.Response.text)
-//     |> then_(text => print_endline(text) |> resolve)
-//   );
+let _ =
+  Js.Promise.(
+    Fetch.fetchWithInit(
+      "/api/hello",
+      Fetch.RequestInit.make(~_method=Post, ()),
+    )
+    |> then_(Fetch.Response.text)
+    |> then_(text => print_endline(text) |> resolve)
+  );
 
 let _ =
   Js.Promise.(
@@ -30,19 +30,19 @@ let _ =
   );
 
 /* makes a post request with the following json payload { hello: "world" } */
-// let _ = {
-//   let payload = Js.Dict.empty();
-//   Js.Dict.set(payload, "hello", Js.Json.string("world"));
-//   Js.Promise.(
-//     Fetch.fetchWithInit(
-//       "/api/hello",
-//       Fetch.RequestInit.make(
-//         ~_method=Post,
-//         ~body=Fetch.BodyInit.make(Js.Json.stringify(Js.Json.object_(payload))),
-//         ~headers=Fetch.HeadersInit.make({"Content-Type": "application/json"}),
-//         ()
-//       )
-//     )
-//     |> then_(Fetch.Response.json)
-//   );
-// };
+let _ = {
+  let payload = Js.Dict.empty();
+  Js.Dict.set(payload, "hello", Js.Json.string("world"));
+  Js.Promise.(
+    Fetch.fetchWithInit(
+      "/api/hello",
+      Fetch.RequestInit.make(
+        ~_method=Post,
+        ~body=Fetch.BodyInit.make(Js.Json.stringify(Js.Json.object_(payload))),
+        ~headers=Fetch.HeadersInit.make({"Content-Type": "application/json"}),
+        ()
+      )
+    )
+    |> then_(Fetch.Response.json)
+  );
+};
