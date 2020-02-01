@@ -35,7 +35,7 @@ Js.Promise.(
 ## Installation
 
 ```sh
-npm install --save bs-fetcher
+npm install --save https://github.com/idkjs/bs-fetcher
 ```
 
 Then add `bs-fetcher` to `bs-dependencies` in your `bsconfig.json`:
