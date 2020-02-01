@@ -1,5 +1,5 @@
 {
-  "name": "bs-fetch",
+  "name": "bs-fetcher",
   "bsc-flags": ["-bs-no-version-header", "-bs-super-errors"],
   "refmt": 3,
   "package-specs": [{

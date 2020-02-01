@@ -1,7 +1,7 @@
 {
-  "name": "bs-fetch",
+  "name": "bs-fetcher",
   "version": "0.5.0",
-  "description": "Fetch bindings for BuckleScript",
+  "description": "Fetch and node-fetch bindings for BuckleScript",
   "scripts": {
     "build": "bsb -make-world",
     "start": "bsb -make-world -w",
@@ -10,24 +10,26 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/reasonml-community/bs-fetch.git"
+    "url": "git+https://github.com/idkjs/bs-fetcher/.git"
   },
   "keywords": [
     "fetch",
     "browser",
     "xhr",
-    "bucklescript"
+    "bucklescript",
+    "node-fetch",
+    "reason"
   ],
-  "author": "glennsl",
+  "author": "idkjs",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/reasonml-community/bs-fetch/issues"
+    "url": "https://github.com/idkjs/bs-fetcher/issues"
   },
-  "homepage": "https://github.com/reasonml-community/bs-fetch#readme",
+  "homepage": "https://github.com/idkjs/bs-fetcher#readme",
   "devDependencies": {
-    "bs-platform": "^7.0.0-dev.2"
+    "bs-platform": "^7.0.1"
   },
   "peerDependencies": {
-    "bs-platform": "^7.0.0-dev.2"
+    "bs-platform": "^7.0.1"
   }
 }
