@@ -113,7 +113,7 @@ module Headers: {
   [@bs.send.pipe: t] external append: (string, string) => unit = "append";
   [@bs.send.pipe: t] external delete: string => unit = "delete" /* very experimental */; /* entries */
   [@bs.send.pipe: t] [@bs.return {null_to_opt: null_to_opt}]
-  external get: string => option(string) = "string";
+  external get: string => option(string) = "get";
   [@bs.send.pipe: t] external has: string => bool = "has" /* very experimental */; /* keys */
   [@bs.send.pipe: t] external set: (string, string) => unit = "set" /* very experimental */; /* values */
 };
@@ -131,7 +131,8 @@ module Body: {
   type t = body;
   [@bs.get] external body: t => readableStream = "body";
   [@bs.get] external bodyUsed: t => bool = "bodyUsed";
-  [@bs.send.pipe: t] external arrayBuffer: Js.Promise.t(arrayBuffer) = "arrayBuffer";
+  [@bs.send.pipe: t]
+  external arrayBuffer: Js.Promise.t(arrayBuffer) = "arrayBuffer";
   [@bs.send.pipe: t] external blob: Js.Promise.t(blob) = "blob";
   [@bs.send.pipe: t] external formData: Js.Promise.t(formData) = "formData";
   [@bs.send.pipe: t] external json: Js.Promise.t(Js.Json.t) = "json";
@@ -142,7 +143,7 @@ module RequestInit: {
   type t = requestInit;
   let make:
     (
-      ~method_: requestMethod=?,
+      ~_method: requestMethod=?,
       ~headers: headersInit=?,
       ~body: bodyInit=?,
       ~referrer: string=?,
@@ -180,7 +181,8 @@ module Request: {
   /* Body Impl */
   [@bs.get] external body: t => readableStream = "body";
   [@bs.get] external bodyUsed: t => bool = "bodyUsed";
-  [@bs.send.pipe: t] external arrayBuffer: Js.Promise.t(arrayBuffer) = "arrayBuffer";
+  [@bs.send.pipe: t]
+  external arrayBuffer: Js.Promise.t(arrayBuffer) = "arrayBuffer";
   [@bs.send.pipe: t] external blob: Js.Promise.t(blob) = "blob";
   [@bs.send.pipe: t] external formData: Js.Promise.t(formData) = "formData";
   [@bs.send.pipe: t] external json: Js.Promise.t(Js.Json.t) = "json";
@@ -204,7 +206,8 @@ module Response: {
   /* Body.Impl */
   [@bs.get] external body: t => readableStream = "body";
   [@bs.get] external bodyUsed: t => bool = "bodyUsed";
-  [@bs.send.pipe: t] external arrayBuffer: Js.Promise.t(arrayBuffer) = "arrayBuffer";
+  [@bs.send.pipe: t]
+  external arrayBuffer: Js.Promise.t(arrayBuffer) = "arrayBuffer";
   [@bs.send.pipe: t] external blob: Js.Promise.t(blob) = "blob";
   [@bs.send.pipe: t] external formData: Js.Promise.t(formData) = "formData";
   [@bs.send.pipe: t] external json: Js.Promise.t(Js.Json.t) = "json";

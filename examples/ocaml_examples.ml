@@ -5,12 +5,12 @@ let _ =
     |> then_ (fun text -> print_endline text |> resolve)
   )
 
-let _ =
+(* let _ =
   Js.Promise.(
-    Fetch.fetchWithInit "/api/hello" (Fetch.RequestInit.make ~method_:Post ())
+    Fetch.fetchWithInit "/api/hello" (Fetch.RequestInit.make ~_method:Post ())
     |> then_ Fetch.Response.text
     |> then_ (fun text -> print_endline text |> resolve)
-  )
+  ) *)
 
 let _ =
   Js.Promise.(
@@ -26,7 +26,7 @@ let _ =
               |> resolve)
   )
 
-let _ =
+(* let _ =
   let payload = Js.Dict.empty () in
   Js.Dict.set payload "hello" (Js.Json.string "world");
   let open Js.Promise in
@@ -36,4 +36,4 @@ let _ =
                    (Js.Json.stringify (Js.Json.object_ payload)))
           ~headers:(Fetch.HeadersInit.makeWithDict (Js.Dict.fromList [
                      ("Content-Type", "application/json")])) ()))
-      |> (then_ Fetch.Response.json)
+      |> (then_ Fetch.Response.json) *)

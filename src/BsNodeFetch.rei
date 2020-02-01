@@ -128,8 +128,7 @@ module Body: {
   type t = body;
   [@bs.get] external body: t => readableStream = "body";
   [@bs.get] external bodyUsed: t => bool = "bodyUsed";
-  [@bs.send.pipe: t]
-  external arrayBuffer: Js.Promise.t(arrayBuffer) = "arrayBufer";
+
   [@bs.send.pipe: t] external blob: Js.Promise.t(blob) = "blob";
   [@bs.send.pipe: t] external formData: Js.Promise.t(formData) = "formData";
   [@bs.send.pipe: t] external json: Js.Promise.t(Js.Json.t) = "json";

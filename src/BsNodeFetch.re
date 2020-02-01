@@ -286,9 +286,10 @@ module Body = {
   module Impl = (T: {type t;}) => {
     [@bs.get] external body: T.t => readableStream = "body";
     [@bs.get] external bodyUsed: T.t => bool = "bodyUsed";
-    [@bs.send.pipe: T.t] external arrayBuffer: Js.Promise.t(arrayBuffer) = "arrayBufer";
+
     [@bs.send.pipe: T.t] external blob: Js.Promise.t(blob) = "blob";
-    [@bs.send.pipe: T.t] external formData: Js.Promise.t(formData) = "formData";
+    [@bs.send.pipe: T.t]
+    external formData: Js.Promise.t(formData) = "formData";
     [@bs.send.pipe: T.t] external json: Js.Promise.t(Js.Json.t) = "json";
     [@bs.send.pipe: T.t] external text: Js.Promise.t(string) = "text";
   };
@@ -363,8 +364,9 @@ module Request = {
   [@bs.new] external makeWithInit: (string, requestInit) => t = "Request";
   [@bs.new] external makeWithRequest: t => t = "Request";
   [@bs.new] external makeWithRequestInit: (t, requestInit) => t = "Request";
-  [@bs.get] external method_: t => string = "method";
-  let method: t => requestMethod = self => decodeRequestMethod(method_(self));
+  [@bs.get] external _method: t => string = "method";
+  let method: t => requestMethod =
+    self => decodeRequestMethod(_method(self));
   [@bs.get] external url: t => string = "url";
   [@bs.get] external headers: t => headers = "headers";
   [@bs.get] external type_: t => string = "type";

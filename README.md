@@ -18,11 +18,15 @@ Mashup of [`bs-fetch`](https://github.com/reasonml-community/bs-fetch) and [`bs-
 
 `bs-fetch` is intended as a thin layer atop the JS API, upon which more high-level and idiomatic libraries can be made. Once such a library has been established, these bindings will likely be refactored to be even thinner.
 
+## Running Examples with Node.js polyfill
+
+[`bs-fetch`](https://github.com/reasonml-community/bs-fetch) has a section explaining how to use that project on the server using [`isomorphic-fetch`](https://github.com/matthew-andrews/isomorphic-fetch).
+
 ## Example
 
 ```reason
 Js.Promise.(
-  Fetch.fetch("/api/hellos/1")
+  Fetch.fetch("https://dog.ceo/api/breeds/image/random/5")
   |> then_(Fetch.Response.text)
   |> then_(text => print_endline(text) |> resolve)
 );
@@ -43,12 +47,6 @@ Then add `bs-fetcher` to `bs-dependencies` in your `bsconfig.json`:
 }
 ```
 
-## Usage
+## `method_` or `_method`
 
-See usage examples in [`ocaml_examples.ml`](https://github.com/reasonml-community/bs-fetch/blob/master/examples/ocaml_examples.ml) and [`reason_examples.re`](https://github.com/reasonml-community/bs-fetch/blob/master/examples/reason_examples.re). The source is a [single file](https://github.com/reasonml-community/bs-fetch/blob/master/src/Fetch.ml)!
-
-## Node.js polyfill
-
-`fetch` is a Web API that isn't available out-of-the-box in Node.js, and will therefore need to be polyfilled. [isomorphic-fetch](https://github.com/matthew-andrews/isomorphic-fetch) one such polyfill that seems to work well. Just install it via npm and add `[%raw "require('isomorphic-fetch')"]` to the top of your main file, but be aware that there are some subtle differences and even parts that are missing entirely.
-
-## Changes
+Converting the `bs-fetch` files to reason only seem to work if you use `_method` signature to deal with the resevered `method` keyword in bucklescript. In `OCaml` syntax, `method_` works.

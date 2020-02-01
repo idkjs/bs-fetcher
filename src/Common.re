@@ -1,0 +1,13 @@
+type body;
+type bodyInit;
+type headers;
+type headersInit;
+type response;
+type request;
+type requestInit;
+type arrayBuffer;
+type blob;
+type bufferSource;
+type formData;
+type readableStream;
+type urlSearchParams;
